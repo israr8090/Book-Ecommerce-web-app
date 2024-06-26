@@ -1,13 +1,17 @@
-import React, { useContext, useEffect, useState } from 'react'
-import './place.css'
-import { StoreContext } from '../../context/StoreContext'
-import axios from 'axios';
+import React, { useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import './place.css';
+import { StoreContext } from '../../context/StoreContext';
 
 function Placeorder() {
+  //-- useNavigate Hook
+  const navigate = useNavigate();
 
-  const { getTotalCartAmount, token, food_list, cartItems, url } = useContext(StoreContext);
+  //--getting from StoreContext
+  const { getTotalCartAmount, token, book_list, cartItems, url } = useContext(StoreContext);
 
+  //--useState for manage data 
   const [data, setData] = useState({
     firstName: '',
     lastName: '',
@@ -20,34 +24,37 @@ function Placeorder() {
     phone: ''
   });
 
-  //--
+  //--onChangeHanler for input values
   const onChangeHandler = (event) => {
     const name = event.target.name;
     const value = event.target.value;
     setData(data => ({ ...data, [name]: value }));
   };
 
-  //--place order--
+  //--place order funciton--
   const placeOrder = async (event) => {
     event.preventDefault();
 
     let orderItems = [];
-    food_list.map((item) => {
+    book_list.map((item) => {
       if (cartItems[item._id] > 0) {
         let itemInfo = item;
         itemInfo["quantity"] = cartItems[item._id];
         orderItems.push(itemInfo);
       }
     });
-
+    
+    //--storing order Data in a variable
     let orderData = {
       address: data,
       items: orderItems,
       amount: getTotalCartAmount() + 2
-    }
+    };
 
+    //--placing order
     let response = await axios.post(url+"/api/order/place", orderData, {headers:{token}});
 
+    //--checking response
     if (response.data.success) {
       const {session_url} = response.data;
       window.location.replace(session_url);
@@ -58,10 +65,7 @@ function Placeorder() {
     }
   };
 
-  //--
-  const navigate = useNavigate();
-
-  //--
+  //--redirecting to cart page if user is not logged in or if cart is empty
   useEffect(()=>{
     if(!token){
       navigate('/cart')
@@ -119,4 +123,4 @@ function Placeorder() {
   )
 }
 
-export default Placeorder
+export default Placeorder;

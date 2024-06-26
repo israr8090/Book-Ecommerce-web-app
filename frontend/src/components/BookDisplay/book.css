@@ -1,13 +1,13 @@
-.food-display{
+.book-display{
     margin-top: 30px;
 }
 
-.food-display h2{
+.book-display h2{
     font-size: max(2vw, 24px);
     font-weight: 600;
 }
 
-.food-display-list{
+.book-display-list{
     display: grid;
     grid-template-columns: repeat(auto-fill,minmax(200px,1fr));
    margin-top: 30px;

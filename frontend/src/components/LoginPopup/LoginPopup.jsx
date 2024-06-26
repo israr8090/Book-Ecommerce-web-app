@@ -1,34 +1,35 @@
-import React, { useContext, useState } from 'react'
-import './LoginPopup.css'
+import React, { useContext, useState } from 'react';
+import axios from 'axios';
+import './LoginPopup.css';
 import { assets } from '../../assets/assets';
 import { StoreContext } from '../../context/StoreContext';
-import axios from 'axios';
 
 function LoginPopup({ setShowLogin }) {
 
-    //--
-    const {url, setToken} = useContext(StoreContext);
+    const {url, setToken} = useContext(StoreContext);  //--getting from store
 
-    const [currentState, setCurrentState] = useState("Login");
+    const [currentState, setCurrentState] = useState("Login");  //--hook
     const [data, setData] = useState({
         name:"",
         email:"",
         password:""
     });
 
-    //--
+    //--onChangeHandler for input data
     const onChangeHandler = (event) => {
         const name = event.target.name;
         const value = event.target.value;
         setData(data=> ({...data,[name]:value}))
-    }
+    };
 
-    //--
+    //--login button click function
     const onLogin = async (event) => {
         event.preventDefault();
-        
-        //--
+
+        //--storing url in variable
         let newUrl = url;
+
+        //--checking condition
         if(currentState==='Login'){
             newUrl += "/api/user/login"
         }
@@ -36,9 +37,10 @@ function LoginPopup({ setShowLogin }) {
             newUrl += "/api/user/register"
         }
 
+        //--sending data to server
         const response = await axios.post(newUrl, data);
 
-        //--
+        //--checking response
         if(response.data.success){
           setToken(response.data.token);
           localStorage.setItem("token", response.data.token);
@@ -47,7 +49,7 @@ function LoginPopup({ setShowLogin }) {
         else{
             alert(response.data.message);
         }
-    }
+    };
 
     return (
         <>
@@ -70,12 +72,10 @@ function LoginPopup({ setShowLogin }) {
                     </div>
                     {currentState === "Login" ? <p>Create a new account? <span onClick={()=> setCurrentState("Sign Up")}>Click here</span></p>
                         : <p>Already have an accout? <span onClick={()=> setCurrentState("Login")}>Login here</span></p>}
-
-
                 </form>
             </div>
         </>
     )
 }
 
-export default LoginPopup
+export default LoginPopup;

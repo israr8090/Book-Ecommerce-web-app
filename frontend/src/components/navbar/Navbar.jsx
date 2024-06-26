@@ -1,23 +1,24 @@
 import React, { useContext, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import './Nav.css';
-import { assets } from '../../assets/assets';
-import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { StoreContext } from '../../context/StoreContext';
+import { assets } from '../../assets/assets';
 
 function Navbar({ setShowLogin }) {
 
-  const [menu, setMenu] = useState("home");
+  const [menu, setMenu] = useState("home"); //--useState for nav menu selection management
 
-  const { getTotalCartAmount, token, setToken } = useContext(StoreContext);
+  const { getTotalCartAmount, token, setToken } = useContext(StoreContext); //--
 
-  //--
-  const navigate = useNavigate();
+  const navigate = useNavigate();  //--hook
+
+  //--logout function
   const logout = () => {
     localStorage.removeItem("token");
     setToken("");
     navigate("/");
 
-  }
+  };
 
   return (
     <>
@@ -38,7 +39,7 @@ function Navbar({ setShowLogin }) {
             <div className="navbar-profile">
               <img src={assets.profile_icon} alt="" />
               <ul className="navbar-profile-dropdown">
-                <li onClick={()=> navigate('/myorders')}>
+                <li onClick={() => navigate('/myorders')}>
                   <img src={assets.bag_icon} alt="" />
                   <p>Orders</p>
                 </li>
@@ -49,11 +50,10 @@ function Navbar({ setShowLogin }) {
                 </li>
               </ul>
             </div>}
-
         </div>
       </div>
     </>
   )
 }
 
-export default Navbar
+export default Navbar;

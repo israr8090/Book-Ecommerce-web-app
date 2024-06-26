@@ -1,24 +1,25 @@
 import React, { useContext, useState, useEffect } from 'react';
+import axios from 'axios';
 import './MyOrder.css';
 import { assets } from '../../assets/assets';
 import { StoreContext } from '../../context/StoreContext';
-import axios from 'axios';
 
 function MyOrder() {
 
-    const [data, setData] = useState([]);
-    //--
+    const [data, setData] = useState([]);  //--useState hook
+
+    //--from StoreContext
     const {url, token} = useContext(StoreContext);
 
-    //--
+    //--fetch order data from backend
     const fetchOrder = async ()=> {
         const response = await axios.post(url+"/api/order/userorders", {}, {headers:{token}});
         setData(response.data.data);
 
-        console.log(response.data.data);
+        // console.log(response.data.data);
     };
 
-    //--
+    //--fetch order data from backend on every render
     useEffect(() => {
         if(token){
             fetchOrder();

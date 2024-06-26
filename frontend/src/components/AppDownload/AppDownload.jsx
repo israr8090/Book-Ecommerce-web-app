@@ -1,6 +1,7 @@
-import React from 'react'
-import './AppDownload.css'
-import { assets } from '../../assets/assets'
+import React from 'react';
+import './AppDownload.css';
+import { assets } from '../../assets/assets';
+
 function AppDownload() {
   return (
     <>
@@ -15,4 +16,4 @@ function AppDownload() {
   )
 }
 
-export default AppDownload
+export default AppDownload;

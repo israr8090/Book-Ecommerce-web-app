@@ -1,12 +1,11 @@
-import React, { useContext } from 'react'
-import './cart.css'
+import React, { useContext } from 'react';
+import './cart.css';
 import { StoreContext } from '../../context/StoreContext';
 import { useNavigate } from 'react-router-dom';
 
 function Cart() {
 
-  const { cartItems, food_list, removeFromCart, getTotalCartAmount, url } = useContext(StoreContext);
-
+  const { cartItems, book_list, removeFromCart, getTotalCartAmount, url } = useContext(StoreContext);
   const navigate = useNavigate();
 
   return (
@@ -24,7 +23,7 @@ function Cart() {
           <br />
           <hr />
           {
-            food_list.map((item, index) => {
+            book_list.map((item, index) => {
               if (cartItems[item._id] > 0) {
                 return (
                   <>
@@ -78,4 +77,4 @@ function Cart() {
   )
 }
 
-export default Cart
+export default Cart;

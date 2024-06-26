@@ -1,17 +1,18 @@
 import React, { useState } from 'react';
-import Navbar from './components/navbar/Navbar';
 import { Route, Routes } from 'react-router-dom';
+//--components--
+import LoginPopup from './components/LoginPopup/LoginPopup';
+import Navbar from './components/navbar/Navbar';
+import Footer from './components/Footer/Footer';
+//--pages--
+import PlaceOrder from './pages/PlaceOrder/Placeorder';
 import Home from './pages/Home/Home';
 import Cart from './pages/Cart/Cart';
-import PlaceOrder from './pages/PlaceOrder/Placeorder';
-import Footer from './components/Footer/Footer';
-import LoginPopup from './components/LoginPopup/LoginPopup';
 import Verify from './pages/Verify/Verify';
 import MyOrder from './pages/MyOrder/MyOrder';
 
 function App() {
-
-  const [showLogin, setShowLogin] = useState(false);
+  const [showLogin, setShowLogin] = useState(false); //--useState hook for manage login state AND passed as prop
 
   return (
     <>
@@ -29,6 +30,6 @@ function App() {
       <Footer />
     </>
   )
-}
+};
 
-export default App
+export default App;
