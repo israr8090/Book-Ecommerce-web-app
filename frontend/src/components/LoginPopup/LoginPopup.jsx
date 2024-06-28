@@ -6,20 +6,20 @@ import { StoreContext } from '../../context/StoreContext';
 
 function LoginPopup({ setShowLogin }) {
 
-    const {url, setToken} = useContext(StoreContext);  //--getting from store
+    const { url, setToken } = useContext(StoreContext);  //--getting from store
 
     const [currentState, setCurrentState] = useState("Login");  //--hook
     const [data, setData] = useState({
-        name:"",
-        email:"",
-        password:""
+        name: "",
+        email: "",
+        password: ""
     });
 
     //--onChangeHandler for input data
     const onChangeHandler = (event) => {
         const name = event.target.name;
         const value = event.target.value;
-        setData(data=> ({...data,[name]:value}))
+        setData(data => ({ ...data, [name]: value }))
     };
 
     //--login button click function
@@ -30,10 +30,10 @@ function LoginPopup({ setShowLogin }) {
         let newUrl = url;
 
         //--checking condition
-        if(currentState==='Login'){
+        if (currentState === 'Login') {
             newUrl += "/api/user/login"
         }
-        else{
+        else {
             newUrl += "/api/user/register"
         }
 
@@ -41,12 +41,12 @@ function LoginPopup({ setShowLogin }) {
         const response = await axios.post(newUrl, data);
 
         //--checking response
-        if(response.data.success){
-          setToken(response.data.token);
-          localStorage.setItem("token", response.data.token);
-          setShowLogin(false);
+        if (response.data.success) {
+            setToken(response.data.token);
+            localStorage.setItem("token", response.data.token);
+            setShowLogin(false);
         }
-        else{
+        else {
             alert(response.data.message);
         }
     };
@@ -70,9 +70,14 @@ function LoginPopup({ setShowLogin }) {
                         <input type="checkbox" required />
                         <p>By continuing, i agree to the terms of use & privacy policy.</p>
                     </div>
-                    {currentState === "Login" ? <p>Create a new account? <span onClick={()=> setCurrentState("Sign Up")}>Click here</span></p>
-                        : <p>Already have an accout? <span onClick={()=> setCurrentState("Login")}>Login here</span></p>}
+                    {currentState === "Login" ? <>
+                        <p>Create a new account? <span onClick={() => setCurrentState("Sign Up")}>Click here</span></p>
+                        <p className='or-google-login'>----or-----</p>
+                        <img className='google-login' src={assets.glogin} alt="" />
+                    </>
+                        : <p>Already have an accout? <span onClick={() => setCurrentState("Login")}>Login here</span></p>}
                 </form>
+
             </div>
         </>
     )

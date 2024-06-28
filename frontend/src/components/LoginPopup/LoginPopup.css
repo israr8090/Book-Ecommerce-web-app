@@ -1,17 +1,17 @@
-.login-popup{
+.login-popup {
     position: fixed;
     z-index: 3;
     width: 100%;
     height: 100%;
     background-color: #00000090;
     display: grid;
-    
+
 }
 
-.login-popup-container{
+.login-popup-container {
     place-self: center;
     width: max(23vw, 330px);
-    height: max(30vw, 420px);
+    height: max(30vw, 450px);
     color: #808080;
     background-color: white;
     display: flex;
@@ -21,63 +21,78 @@
     border-radius: 8px;
     font-size: 14px;
     animation: fadeIn 0.5s;
+    position: relative;
 }
 
-.login-popup-title{
+.login-popup-title {
     display: flex;
     justify-content: space-between;
     align-items: center;
     color: #000000;
 }
 
-.login-popup-title img{
+.login-popup-title img {
     width: 16px;
     cursor: pointer;
 }
 
-.login-popup-inputs{
+.login-popup-inputs {
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
-.login-popup-inputs input{
+
+.login-popup-inputs input {
     outline: none;
     border: 1px solid #c9c9c9;
     padding: 10px;
     border-radius: 4px;
 }
 
-.login-popup-container button{
+.login-popup-container button {
     border: none;
     padding: 10px;
     border-radius: 4px;
     color: white;
     background-color: tomato;
     font-size: 15px;
-     cursor: pointer;
+    cursor: pointer;
 }
 
-.login-popup-condition{
+.login-popup-condition {
     display: flex;
     align-items: start;
     gap: 8px;
     margin-top: -15px;
 }
 
-.login-popup-condition input{
+.login-popup-condition input {
     margin-top: 5px;
 
 }
 
-.login-popup p span{
+.login-popup p span {
     color: tomato;
     cursor: pointer;
     font-weight: 500;
+}
+
+.or-google-login {
+    text-align: center;
+}
+
+.google-login {
+    width: 100%;
+    height: 45px;
+    cursor: pointer;
+    width: 80%;
+    position: absolute;
+    bottom: 20px;
 }
 
 @media (max-width:750px) {
     .login-popup {
         height: 110%;
     }
-  
-  }
+
+}
