@@ -14,15 +14,16 @@ import MyOrder from './pages/MyOrder/MyOrder';
 function App() {
   const [showLogin, setShowLogin] = useState(false); //--useState hook for manage login state AND passed as prop
 
+
   return (
     <>
-      {showLogin ? <LoginPopup setShowLogin= {setShowLogin} /> : <></>}
+      {showLogin ? <LoginPopup setShowLogin={setShowLogin} /> : <></>}
       <div className="app">
-        <Navbar setShowLogin= {setShowLogin} />
+        <Navbar setShowLogin={setShowLogin} />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/cart" element={<Cart />} />
-          <Route path="/order" element={<PlaceOrder/>}/>
+          <Route path="/cart" element={<Cart setShowLogin={setShowLogin}/>} />
+          <Route path="/order" element={<PlaceOrder />} />
           <Route path="/verify" element={<Verify />} />
           <Route path="/myorders" element={<MyOrder />} />
         </Routes>

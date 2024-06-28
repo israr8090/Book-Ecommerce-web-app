@@ -11,6 +11,7 @@
 .login-popup-container{
     place-self: center;
     width: max(23vw, 330px);
+    height: max(30vw, 420px);
     color: #808080;
     background-color: white;
     display: flex;
@@ -73,3 +74,10 @@
     cursor: pointer;
     font-weight: 500;
 }
+
+@media (max-width:750px) {
+    .login-popup {
+        height: 110%;
+    }
+  
+  }

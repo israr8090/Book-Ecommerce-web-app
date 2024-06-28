@@ -19,3 +19,10 @@
    gap: 30px;
    row-gap: 50px;
 }
+
+@media (max-width:750px) {
+    .book-display h2 {
+        font-size: max(2vw, 21px);
+    }
+  
+  }

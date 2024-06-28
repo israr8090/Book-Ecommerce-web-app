@@ -1,24 +1,33 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import './cart.css';
 import { StoreContext } from '../../context/StoreContext';
 import { useNavigate } from 'react-router-dom';
+import AppDownload from '../../components/AppDownload/AppDownload';
 
-function Cart() {
+function Cart({ setShowLogin }) {
 
-  const { cartItems, book_list, removeFromCart, getTotalCartAmount, url } = useContext(StoreContext);
+  const { cartItems, book_list, removeFromCart, getTotalCartAmount, url, token } = useContext(StoreContext);
   const navigate = useNavigate();
+
+  //--checkOut function--
+  const checkOut = () => {
+    if (!token) {
+    setShowLogin(true)
+    }
+    navigate('/order');
+  };
 
   return (
     <>
       <div className="cart">
         <div className="cart-items">
           <div className="cart-items-title">
-            <p>Items</p>
-            <p>Title</p>
-            <p>Price</p>
-            <p>Quantity</p>
-            <p>Total</p>
-            <p>Remove</p>
+            <b>Items</b>
+            <b>Title</b>
+            <b>Price</b>
+            <b>Quantity</b>
+            <b>Total</b>
+            <b>Remove</b>
           </div>
           <br />
           <hr />
@@ -60,7 +69,7 @@ function Cart() {
                 <b>${getTotalCartAmount()===0 ? 0: getTotalCartAmount()+2}</b>
               </div>
             </div>
-            <button onClick={()=> navigate('/order')}>PROCEED TO CHECKOUT</button>
+            <button onClick={checkOut}>PROCEED TO CHECKOUT</button>
           </div>
           <div className="cart-promocode">
             <div>
@@ -73,6 +82,7 @@ function Cart() {
           </div>
         </div>
       </div>
+      <AppDownload />
     </>
   )
 }

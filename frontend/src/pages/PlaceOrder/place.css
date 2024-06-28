@@ -1,9 +1,9 @@
 .place-order {
     display: flex;
     align-items: start;
-    justify-content: space-between;
+    justify-content: space-around;
     gap: 50px;
-    margin-top: 100px;
+    margin-top: 40px;
 }
 
 .place-order-left {
@@ -22,7 +22,8 @@
     width: 100%;
     padding: 10px;
     border: 1px solid #c5c5c5;
-    outline-color: tomato;
+    outline-color: rgb(31, 175, 50);
+    border-radius: 5px;
 }
 
 .place-order-left .multi-fields {
@@ -35,6 +36,24 @@
     max-width: max(40%, 500px);
 }
 
+.cart-total {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border-radius: 10px;
+    padding: 25px;
+    background-color: rgb(255, 255, 255);
+}
+
 .place-order .cart-total button{
     margin-top: 30px;
+}
+
+@media (max-width:750px) {
+    .place-order {
+        flex-direction: column;
+        margin-top: 0px;
+    }
 }

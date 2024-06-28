@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './place.css';
 import { StoreContext } from '../../context/StoreContext';
+import AppDownload from '../../components/AppDownload/AppDownload';
 
 function Placeorder() {
   //-- useNavigate Hook
@@ -65,6 +66,15 @@ function Placeorder() {
     }
   };
 
+  //--cash on delivery option
+  const cashOnDelivery = () =>{
+    if(!data){
+      alert('Please fill all the fields')
+    }
+    alert("Cash on Delivery is not Available")
+  };
+
+
   //--redirecting to cart page if user is not logged in or if cart is empty
   useEffect(()=>{
     if(!token){
@@ -77,6 +87,7 @@ function Placeorder() {
 
   return (
     <>
+      {/* <form className="place-order"> */}
       <form className="place-order" onSubmit={placeOrder}>
         <div className="place-order-left">
           <p className="title">Delivery Information</p>
@@ -115,12 +126,14 @@ function Placeorder() {
                 <b>${getTotalCartAmount() === 0 ? 0 : getTotalCartAmount() + 2}</b>
               </div>
             </div>
-            <button type='submit'>PROCEED TO PAYMENT</button>
+            <button type='submit' >Pay Now</button>
+            <button type='button' onClick={cashOnDelivery}>Cash on Delivery(COD)</button>
           </div>
         </div>
       </form>
+      <AppDownload />
     </>
   )
-}
+};
 
 export default Placeorder;

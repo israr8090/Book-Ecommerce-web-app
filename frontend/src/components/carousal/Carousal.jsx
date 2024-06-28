@@ -27,7 +27,7 @@ const Carousal = () => {
     }, []);
 
     return (
-        <div className="carousel">
+        <div className="carousel" id='carousel' >
             <div className="carousel-inner" style={{ transform: `translateX(-${currentIndex * 100}%)` }}>
                 {images.map((image, index) => (
                     <div className={`carousel-item ${index === currentIndex ? 'active' : ''}`} key={index}>

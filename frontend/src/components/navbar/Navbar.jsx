@@ -27,7 +27,7 @@ function Navbar({ setShowLogin }) {
         <ul className="navbar-menu">
           <a href='#explore-menu' onClick={() => setMenu("menu")} className={menu == "menu" ? "active" : ""}>Books</a>
           <a href='#app-download' onClick={() => setMenu("mobile-app")} className={menu == "mobile-app" ? "active" : ""}>Moblie-App</a>
-          <a href='#footer' onClick={() => setMenu("contact-us")} className={menu == "contact-us" ? "active" : ""}>Contact us</a>
+          <a href='#footer' onClick={() => setMenu("contact-us")} className={menu == "contact-us" ? "active" : ""}>Contact Us</a>
         </ul>
         <div className="navbar-right"> 
           <div className='navbar-search'>

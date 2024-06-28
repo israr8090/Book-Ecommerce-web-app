@@ -67,6 +67,13 @@
 }
 
 @media (max-width:1050px) {
+    .explore-menu h1 {
+      font-size: 28px;
+    }
+    .explore-menu-list{
+        overflow-x: scroll;
+    }
+
     .explore-menu-text{
         max-width: 100%;
         font-size: 14px;
