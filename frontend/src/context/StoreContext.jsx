@@ -13,6 +13,8 @@ export const StoreContextProvider = (props) => {
     const [cartItems, setCartItems] = useState({});
     const [token, setToken] = useState("");
     const [book_list, setBookList] = useState([]);
+    const [duplicateBooks, setDuplicateBooks] = useState([]); //--search book by name
+    const [searchkey, setsearchkey] = useState(''); //--searchkey for input key operation
 
     //--for adding item in cart--
     const addToCart = async (itemId) => {
@@ -62,6 +64,14 @@ export const StoreContextProvider = (props) => {
     const fetchBookList = async () => {
         const response = await axios.get(url + "/api/book/list");
         setBookList(response.data.data);
+        setDuplicateBooks(response.data.data);
+    };
+
+    //--filter books by search key
+    function filterBySearch() {
+        const tempBook = duplicateBooks.filter(book => book.name.toLowerCase().includes(searchkey.toLowerCase()))
+        console.log(tempBook)
+        setBookList(tempBook)
     };
 
     //--when reload web page user not logout--
@@ -90,6 +100,9 @@ export const StoreContextProvider = (props) => {
         url,
         token,
         setToken,
+        filterBySearch,
+        searchkey,
+        setsearchkey,
     };
 
     return (

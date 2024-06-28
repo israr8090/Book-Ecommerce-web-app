@@ -3,6 +3,7 @@ import axios from 'axios';
 import './MyOrder.css';
 import { assets } from '../../assets/assets';
 import { StoreContext } from '../../context/StoreContext';
+import AppDownload from '../../components/AppDownload/AppDownload';
 
 function MyOrder() {
 
@@ -15,7 +16,6 @@ function MyOrder() {
     const fetchOrder = async ()=> {
         const response = await axios.post(url+"/api/order/userorders", {}, {headers:{token}});
         setData(response.data.data);
-
         // console.log(response.data.data);
     };
 
@@ -52,6 +52,7 @@ function MyOrder() {
                 })}
             </div>
         </div>
+        <AppDownload/>
     </>
   )
 }

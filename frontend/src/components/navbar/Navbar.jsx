@@ -7,8 +7,10 @@ import { assets } from '../../assets/assets';
 function Navbar({ setShowLogin }) {
 
   const [menu, setMenu] = useState("home"); //--useState for nav menu selection management
+  
+ 
 
-  const { getTotalCartAmount, token, setToken } = useContext(StoreContext); //--
+  const { getTotalCartAmount, token, setToken, filterBySearch, searchkey,  setsearchkey } = useContext(StoreContext); //--
 
   const navigate = useNavigate();  //--hook
 
@@ -29,10 +31,10 @@ function Navbar({ setShowLogin }) {
           <a href='#app-download' onClick={() => setMenu("mobile-app")} className={menu == "mobile-app" ? "active" : ""}>Moblie-App</a>
           <a href='#footer' onClick={() => setMenu("contact-us")} className={menu == "contact-us" ? "active" : ""}>Contact Us</a>
         </ul>
-        <div className="navbar-right"> 
+        <div className="navbar-right">
           <div className='navbar-search'>
-            <input type="text" />
             <img src={assets.search_icon} alt="" />
+            <input placeholder='search books here' type="text" value={searchkey} onChange={(e) => { setsearchkey(e.target.value) }} onKeyUp={filterBySearch} />
           </div>
           <div className="navbar-basket-icon">
             <Link to='/cart' ><img src={assets.basket_icon} alt="" /></Link>
