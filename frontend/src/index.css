@@ -17,8 +17,10 @@ a{
   color: inherit;
 }
 .app{
-  width: 80%;
+  /* width: 95%; */
+  padding: 30px;
   margin: auto;
+  background-color: rgb(255, 255, 255);
 }
 
 @keyframes fadeIn {

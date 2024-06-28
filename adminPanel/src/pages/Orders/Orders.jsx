@@ -43,13 +43,13 @@ const Orders = ({ url }) => {
   return (
     <>
       <div className="order add">
-        <h3>Order Page</h3>
+        <h3>ORDERS :-</h3>
         <div className="order-list">
           {orders.map((order, index) => (
             <div className="order-item" key={index}>
               <img src={assets.parcel_icon} alt="" />
               <div>
-                <p className="order-item-food">
+                <p className="order-item-book">
                   {order.items.map((item, index) => {
                     if (index === order.items.length - 1) {
                       return item.name + " x " + item.quantity;
@@ -66,10 +66,10 @@ const Orders = ({ url }) => {
                   <p>{order.address.street + ", "}</p>
                   <p>{order.address.city + ", " + order.address.state + ", " + order.address.country + ", " + order.address.zipcode + ", "}</p>
                 </div>
-                <p className="order-item-phone">{order.address.phone}</p>
+                <p className="order-item-phone"><b>Contect No.</b> {order.address.phone}</p>
               </div>
-              <p>Items : {order.items.length}</p>
-              <p>${order.amount}</p>
+              <p><b>Items : </b>{order.items.length}</p>
+              <p><b>Amount:</b> ${order.amount}</p>
               <select onChange={(event)=> statusHandler(event, order._id)} value={order.status}>
                 <option value="Order Proccessing">Order Proccessing</option>
                 <option value="Out for delivery">Out for delivery</option>

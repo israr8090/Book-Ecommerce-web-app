@@ -34,6 +34,13 @@ import bag_icon from './bag_icon.png'
 import logout_icon from './logout_icon.png'
 import parcel_icon from './parcel_icon.png'
 
+//--banners
+import banner1 from './banner1.jpg'
+import banner2 from './banner2.jpg'
+import banner3 from './banner3.jpg'
+import banner4 from './banner4.jpg'
+import banner5 from './banner5.jpg'
+
 export const assets = {
     logo,
     basket_icon,
@@ -53,7 +60,12 @@ export const assets = {
     profile_icon,
     logout_icon,
     bag_icon,
-    parcel_icon
+    parcel_icon,
+    banner1,
+    banner2,
+    banner3,
+    banner4,
+    banner5,
 }
 
 export const menu_list = [

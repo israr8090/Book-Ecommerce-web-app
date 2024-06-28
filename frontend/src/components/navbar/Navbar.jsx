@@ -25,13 +25,16 @@ function Navbar({ setShowLogin }) {
       <div className="navbar">
         <Link to='/'><img src={assets.logo} alt="" className="logo" /></Link>
         <ul className="navbar-menu">
-          <a href='#explore-menu' onClick={() => setMenu("menu")} className={menu == "menu" ? "active" : ""}>menu</a>
-          <a href='#app-download' onClick={() => setMenu("mobile-app")} className={menu == "mobile-app" ? "active" : ""}>moblie-app</a>
-          <a href='#footer' onClick={() => setMenu("contact-us")} className={menu == "contact-us" ? "active" : ""}>contact us</a>
+          <a href='#explore-menu' onClick={() => setMenu("menu")} className={menu == "menu" ? "active" : ""}>Books</a>
+          <a href='#app-download' onClick={() => setMenu("mobile-app")} className={menu == "mobile-app" ? "active" : ""}>Moblie-App</a>
+          <a href='#footer' onClick={() => setMenu("contact-us")} className={menu == "contact-us" ? "active" : ""}>Contact us</a>
         </ul>
-        <div className="navbar-right">
-          <img src={assets.search_icon} alt="" />
-          <div className="navbar-search-icon">
+        <div className="navbar-right"> 
+          <div className='navbar-search'>
+            <input type="text" />
+            <img src={assets.search_icon} alt="" />
+          </div>
+          <div className="navbar-basket-icon">
             <Link to='/cart' ><img src={assets.basket_icon} alt="" /></Link>
             <div className={getTotalCartAmount() === 0 ? "" : "dot"}></div>
           </div>

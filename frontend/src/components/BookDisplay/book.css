@@ -1,10 +1,15 @@
 .book-display{
     margin-top: 30px;
+    padding: 30px;
+    background-color: white;
+    border-radius: 10px;
 }
 
 .book-display h2{
     font-size: max(2vw, 24px);
     font-weight: 600;
+    color: #262626;
+
 }
 
 .book-display-list{

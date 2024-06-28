@@ -10,7 +10,7 @@ function Bookdisplay({ category }) {
     return (
         <>
             <div className="book-display" id="book-display">
-                <h2>Top dishes near you</h2>
+                <h2>Top Books is Only For You</h2>
                 <div className="book-display-list">
                     {
                         book_list.map((item, index) => {

@@ -38,8 +38,8 @@ const List = ({ url }) => {
 
   return (
     <>
-      <div className="list add flex-col">
-        <p>All Books List</p>
+      <div className="list add flex-col-list">
+        <b>All Items List</b>
         <div className="list-table">
           <div className="list-table-format title">
             <b>Image</b>
@@ -57,7 +57,7 @@ const List = ({ url }) => {
                   <p>{item.name}</p>
                   <p>{item.category}</p>
                   <p>${item.price}</p>
-                  <p onClick={() => removeBook(item._id)} className='cursor'>X</p>
+                  <p onClick={() => removeBook(item._id)} className='cursor'>Delete Item</p>
                 </div>
               </>
             )

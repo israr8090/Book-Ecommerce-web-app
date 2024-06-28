@@ -13,21 +13,23 @@ import Orders from './pages/Orders/Orders';
 
 const App = () => {
 
-    const url = "http://localhost:4000"; //--server URL for api call--
+  const url = "http://localhost:4000"; //--server URL for api call--
 
   return (
     <>
       <div>
-        <ToastContainer/>
+        <ToastContainer />
         <Navbar />
         <hr />
         <div className="app-content">
-          <Sidebar />
-          <Routes>
-            <Route path="/" element={<Orders  url = {url}/>} />
-            <Route path="/list" element={<List  url = {url}/>} />
-            <Route path="/add" element={<Add  url = {url}/>} />
-          </Routes>
+          <div className='flex-left'><Sidebar /></div>
+          <div className='flex-right'>
+            <Routes>
+              <Route path="/" element={<Orders url={url} />} />
+              <Route path="/list" element={<List url={url} />} />
+              <Route path="/add" element={<Add url={url} />} />
+            </Routes>
+          </div>
         </div>
       </div>
     </>

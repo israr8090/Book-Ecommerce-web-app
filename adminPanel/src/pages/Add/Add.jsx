@@ -10,7 +10,7 @@ const Add = ({ url }) => {
   const [data, setData] = useState({
     name: "",
     description: "",
-    category: 'Salad',
+    category: '',
     price: ""
   });
 
@@ -53,6 +53,8 @@ const Add = ({ url }) => {
   return (
     <>
       <div className="add">
+        <h2>ADD PORDUCTS</h2>
+        <hr />
         <form className='flex-col' onSubmit={onSubmitHandler}>
           <div className="flex-row">
             <div className="add-img-upload flex-col">
@@ -69,32 +71,35 @@ const Add = ({ url }) => {
             </div>
           </div>
 
-          <div className="add-product-description flex-col">
-            <p>Product description</p>
-            <textarea onChange={onChangeHandler} value={data.description} name="description" rows='6' placeholder='Write content here' required></textarea>
-          </div>
+          <div className="flex-row">
+            <div className="add-product-description flex-col">
+              <p>Product description</p>
+              <textarea onChange={onChangeHandler} value={data.description} name="description" rows='6' placeholder='Write content here' required></textarea>
+            </div>
 
-          <div className="add-category-price">
-            <div className="add-category flex-col">
-              <p>Product Category</p>
-              <select onChange={onChangeHandler} value={data.category} name="category" id="category">
-                <option value="Select">Select</option>
-                <option value="Business & Economics">Business & Economics</option>
-                <option value="Health & Fitness">Health & Fitness</option>
-                <option value="History">History</option>
-                <option value="Literature">Literature</option>
-                <option value="Political Science">Political Science</option>
-                <option value="Psychology">Psychology</option>
-                <option value="Science">Science</option>
-                <option value="Social Science">Social Science</option>
-              </select>
+            <div className="add-category-price">
+              <div className="add-category flex-col">
+                <p>Product Category</p>
+                <select onChange={onChangeHandler} value={data.category} name="category" id="category">
+                  <option value="Select">Select</option>
+                  <option value="Business & Economics">Business & Economics</option>
+                  <option value="Health & Fitness">Health & Fitness</option>
+                  <option value="History">History</option>
+                  <option value="Literature">Literature</option>
+                  <option value="Political Science">Political Science</option>
+                  <option value="Psychology">Psychology</option>
+                  <option value="Science">Science</option>
+                  <option value="Social Science">Social Science</option>
+                </select>
+              </div>
+              <div className="add-price flex-col">
+                <p>Product price</p>
+                <input onChange={onChangeHandler} value={data.price} type="Number" name='price' placeholder='$20' />
+              </div>
             </div>
-            <div className="add-price flex-col">
-              <p>Product price</p>
-              <input onChange={onChangeHandler} value={data.price} type="Number" name='price' placeholder='$20' />
-            </div>
+
           </div>
-          <button type='submit' className='add-button'>ADD</button>
+          <button type='submit' className='add-button'>Add Product</button>
         </form>
       </div>
     </>

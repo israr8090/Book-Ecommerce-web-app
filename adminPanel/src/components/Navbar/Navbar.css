@@ -2,23 +2,35 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 8px 4%;
-    background-color: rgb(12, 11, 11);
+    padding: 10px 4%;
+    background-color: rgb(21, 63, 27);
     color: rgb(230, 226, 226);
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
     position: fixed;
     top: 0;
     width: 100%;
     z-index: 3;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 .navbar .logo{
-    width: max(10%, 80px);
+    width: max(12%, 80px);
+    border-radius: 5px;
 }
 
 .navbar .profile{
-    width: 35px;
-    height: 35px;
-    border: 1px solid rgb(245, 245, 245);
+    width: 30px;
+    height: 30px;
+    border: 1px solid rgb(0, 0, 0);
     border-radius: 50%;
+    margin-right: 5px;
+}
+
+.profile-flex{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid rgb(0, 0, 0);
+    padding: 5px 15px;
+    border-radius: 10px;
+    background-color: rgb(255, 255, 255);
 }

@@ -1,17 +1,27 @@
+.order{
+    width: 90%;
+}
+
+.order h3{
+    color: black;
+}
+
 .order-item{
     display: grid;
     grid-template-columns: 0.5fr 2fr 1fr 1fr 1fr;
     align-items: center;
     gap: 30px;
-    border: 1px solid tomato;
+    border: 1px solid rgb(5, 120, 44);
+    background-color: rgb(255, 255, 255);
     padding: 20px;
     margin: 30px 0px;
     font-size: 14px;
     color: #505050;
     border-radius: 4px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
-.order-item-food, .order-item-name{
+.order-item-book, .order-item-name{
     font-weight: 600;
 }
 
@@ -26,13 +36,14 @@
 
 .order-item select{
     background-color: #ffe8e4;
-    border: 1px solid tomato;
-    width: max(10vw, 120px);
+    border: 1px solid rgb(5, 120, 44);
+   border-radius: 5px;
+    width: max(12vw, 120px);
     padding: 10px;
     outline: none;
 }
 
-/* ---- */
+/* -media--- */
 @media (max-width:1000px) {
     .order-item{
         font-size: 12px;

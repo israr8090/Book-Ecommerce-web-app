@@ -60,11 +60,24 @@
     color: white;
 }
 
-.navbar-search-icon{
+.navbar-search{
+    border: 1px solid rgb(226, 221, 221);
+    border-radius: 4px;
+    outline: none;    
+    padding: 2px;
+    display: flex;
+}
+
+.navbar-search input{
+    outline: none;
+    padding: 2px;
+}
+
+.navbar-basket-icon{
     position: relative;
 }
 
-.navbar-search-icon .dot{
+.navbar-basket-icon .dot{
     position: absolute;
     min-width: 10px;
     min-height: 10px;

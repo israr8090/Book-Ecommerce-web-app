@@ -1,11 +1,11 @@
-.header{
+/* .header{
     height: 34vw;
     margin: 30px auto;
     background:  url('/header_img.jpeg') no-repeat;
     background-size: contain;
     position: relative;
     margin-top: 50px;
-}
+} */
 
 .header-contents{
     position: absolute;
@@ -22,7 +22,7 @@
 .header-contents h2{
    font-weight: 500;
    color: white;
-   font-size: max(4.5vw, 22px);
+   font-size: max(3vw, 22px);
 }
 
 .header-contents p{
