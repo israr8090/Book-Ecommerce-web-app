@@ -88,6 +88,10 @@
     width: 80%;
     position: absolute;
     bottom: 20px;
+    transition: 0.5s;
+}
+.google-login:hover {
+    transform: scale(1.05);
 }
 
 @media (max-width:750px) {

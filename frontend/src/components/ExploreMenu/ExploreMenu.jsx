@@ -8,7 +8,6 @@ function ExploreMenu({category, setCategory}) {
     <>
         <div className="explore-menu" id='explore-menu'>
             <h1>Explore our menu</h1>
-            {/* <p className='explore-menu-text'>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vitae id a neque asperiores omnis quibusdam explicabo corporis, esse, tenetur quasi hic aspernatur tempore nemo aut culpa fuga pariatur doloremque aperiam!</p> */}
             <div className="explore-menu-list">
                 { menu_list.map((item, index) => {
                         return (

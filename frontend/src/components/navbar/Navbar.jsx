@@ -6,20 +6,24 @@ import { assets } from '../../assets/assets';
 
 function Navbar({ setShowLogin }) {
 
-  const [menu, setMenu] = useState("home"); //--useState for nav menu selection management
-  
- 
+  const [menu, setMenu] = useState("menu"); //--useState for nav menu selection management
 
-  const { getTotalCartAmount, token, setToken, filterBySearch, searchkey,  setsearchkey } = useContext(StoreContext); //--
+
+
+  const { decodeToken, getTotalCartAmount, token, setToken, filterBySearch, searchkey, setsearchkey } = useContext(StoreContext); //--
 
   const navigate = useNavigate();  //--hook
+
+  //--decode token to get user details
+  const userDetails = decodeToken(token);
+  // console.log(userDetails);
+
 
   //--logout function
   const logout = () => {
     localStorage.removeItem("token");
     setToken("");
     navigate("/");
-
   };
 
   return (
@@ -27,7 +31,7 @@ function Navbar({ setShowLogin }) {
       <div className="navbar">
         <Link to='/'><img src={assets.logo} alt="" className="logo" /></Link>
         <ul className="navbar-menu">
-          <a href='#explore-menu' onClick={() => setMenu("menu")} className={menu == "menu" ? "active" : ""}>Books</a>
+          <Link to='/' onClick={() => setMenu("menu")} className={menu == "menu" ? "active" : ""}>Home</Link>
           <a href='#app-download' onClick={() => setMenu("mobile-app")} className={menu == "mobile-app" ? "active" : ""}>Moblie-App</a>
           <a href='#footer' onClick={() => setMenu("contact-us")} className={menu == "contact-us" ? "active" : ""}>Contact Us</a>
         </ul>
@@ -37,12 +41,16 @@ function Navbar({ setShowLogin }) {
             <input placeholder='search books here' type="text" value={searchkey} onChange={(e) => { setsearchkey(e.target.value) }} onKeyUp={filterBySearch} />
           </div>
           <div className="navbar-basket-icon">
-            <Link to='/cart' ><img src={assets.basket_icon} alt="" /></Link>
+            <Link to='/cart' onClick={() => setMenu("cart")} className={menu == "cart" ? "active" : ""} ><img src={assets.basket_icon} alt="" /></Link>
             <div className={getTotalCartAmount() === 0 ? "" : "dot"}></div>
           </div>
           {!token ? <button onClick={() => setShowLogin(true)} >Sign in</button> :
             <div className="navbar-profile">
-              <img src={assets.profile_icon} alt="" />
+              <div className='user-info'>
+                <img src={assets.profile_icon} alt="" />
+                {/* <h3 >{userDetails.user.name.substring(0, 1)}</h3> */}
+                <h5 >{userDetails.user.name}</h5>
+              </div>
               <ul className="navbar-profile-dropdown">
                 <li onClick={() => navigate('/myorders')}>
                   <img src={assets.bag_icon} alt="" />

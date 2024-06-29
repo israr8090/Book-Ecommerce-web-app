@@ -4,10 +4,16 @@ import bcrypt from 'bcrypt';
 import validator from 'validator';
 
 //--create Token--
-const createToken = (id) => {
+const createToken = (user) => {
     // return jwt.sign({id}, process.env.JWT_SECRET, {expiresIn: '1d'});
-    return jwt.sign({ id }, process.env.JWT_SECRET);
+    return jwt.sign({ user }, process.env.JWT_SECRET);
 }
+
+// //--create Token--
+// const createToken = (id) => {
+//     // return jwt.sign({id}, process.env.JWT_SECRET, {expiresIn: '1d'});
+//     return jwt.sign({ id }, process.env.JWT_SECRET);
+// }
 
 //--register user  
 const registerUser = async (req, res) => {
@@ -39,14 +45,16 @@ const registerUser = async (req, res) => {
         const user = new userModel({
             name,
             email,
-            password: hashedPassword
+            password: hashedPassword,
+            image:""
         });
 
         //--saving new user--
         const newUser = await user.save();
 
         //--generating token--
-        const token = createToken(newUser._id);
+        // const token = createToken(newUser._id);
+        const token = createToken(newUser);
 
         //--returning token--
         res.json({ success: true, message: "User Registered Successfully", token });
@@ -77,7 +85,8 @@ const loginUser = async (req, res) => {
         }
 
         //--generating token--
-        const token = createToken(user._id);
+        // const token = createToken(user._id);
+        const token = createToken(user);
 
         //--returning token--
         res.json({ success: true, message: "User Logged In Successfully", token });
@@ -88,5 +97,16 @@ const loginUser = async (req, res) => {
     }
 };
 
+//--fetch all user List
+const userList = async (req, res) => {
+    try {
+        const users = await userModel.find({});
+        res.json({ success: true, data: users });
+    } catch (error) {
+        console.log(error);
+        res.json({ success: false, message: "Error" });
+    }
+};
 
-export { registerUser, loginUser };
+//--export--
+export { registerUser, loginUser, userList };

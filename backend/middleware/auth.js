@@ -11,7 +11,10 @@ const authMiddleware = async (req, res, next) => {
     //--decode token and store user id in req.body.userId
     try {
         const token_decode = jwt.verify(token, process.env.JWT_SECRET);
-        req.body.userId = token_decode.id;
+        // req.body.userId = token_decode.id;  //--for getting only user Id
+
+        req.body.userId = token_decode.user; //for gatting user all data
+        
         // console.log(req.body)
         next();
     } catch (error) {

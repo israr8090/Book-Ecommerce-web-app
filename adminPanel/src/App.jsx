@@ -10,6 +10,7 @@ import Sidebar from './components/Sidebar/Sidebar';
 import List from './pages/List/List';
 import Add from './pages/Add/Add';
 import Orders from './pages/Orders/Orders';
+import UsersList from './pages/UsersList/UsersList';
 
 const App = () => {
 
@@ -28,6 +29,7 @@ const App = () => {
               <Route path="/" element={<Orders url={url} />} />
               <Route path="/list" element={<List url={url} />} />
               <Route path="/add" element={<Add url={url} />} />
+              <Route path="/users" element={<UsersList url={url} />} />
             </Routes>
           </div>
         </div>

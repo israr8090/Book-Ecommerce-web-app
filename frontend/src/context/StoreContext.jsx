@@ -1,5 +1,6 @@
 import axios from "axios";
 import { createContext, useEffect, useState } from "react";
+import { jwtDecode } from "jwt-decode"; //--jwt-decode for decoding token in frontend
 
 //--exporting StoreContext for uses in components
 export const StoreContext = createContext(null)
@@ -74,6 +75,18 @@ export const StoreContextProvider = (props) => {
         setBookList(tempBook)
     };
 
+    //--decode token of logged in user
+    const decodeToken = (token) => {
+        try {
+            const token_decode = jwtDecode(token)
+            // console.log(token_decode)
+            return token_decode;
+        } catch (error) {
+            console.log(error);
+            return null;
+        }
+    };
+
     //--when reload web page user not logout--
     useEffect(() => {
         async function loadData() {
@@ -103,6 +116,7 @@ export const StoreContextProvider = (props) => {
         filterBySearch,
         searchkey,
         setsearchkey,
+        decodeToken
     };
 
     return (

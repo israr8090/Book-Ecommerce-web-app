@@ -92,10 +92,34 @@
     position: relative;
 }
 
+.navbar-profile .user-info {
+    border: 1px solid rgb(2, 146, 14);
+    background-color: rgb(242, 236, 236);
+    display: flex;
+    align-items: center;
+    padding: 5px 10px;
+    border-radius: 10px;
+    gap: 5px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.navbar-profile .user-info:hover{
+    border: 1px solid rgb(255, 255, 255);
+    background-color: rgb(31, 170, 38);
+}
+
+.navbar-profile .user-info img {
+    border: 1px solid rgb(0, 0, 0);
+    background-color: white;
+    border-radius: 50%;
+    padding: 2px;
+}
+
 .navbar-profile-dropdown {
     position: absolute;
     display: none;
-    right: 0;
+    right: 20px;
     z-index: 1;
 }
 
