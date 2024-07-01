@@ -14,7 +14,8 @@ import UsersList from './pages/UsersList/UsersList';
 
 const App = () => {
 
-  const url = "http://localhost:4000"; //--server URL for api call--
+  // const url = "http://localhost:4000"; //--server URL for api call--
+  const url = "https://book-ecommerce-backend-7qs1.onrender.com"; //--server URL for api call--
 
   return (
     <>
