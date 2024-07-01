@@ -8,7 +8,8 @@ export const StoreContext = createContext(null)
 //--creating StoreContextProvider for uses in components
 export const StoreContextProvider = (props) => {
 
-    const url = "http://localhost:4000"; //--server side URL--
+    // const url = "http://localhost:4000"; //--server side URL--
+    const url = "https://book-ecommerce-backend-7qs1.onrender.com"; //--server side URL--
 
     //--useStates
     const [cartItems, setCartItems] = useState({});
