@@ -62,7 +62,6 @@ function Placeorder() {
     }
     else {
       alert("Error");
-      console.log(error)
     }
   };
 

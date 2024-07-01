@@ -13,7 +13,7 @@ const app = express();
 const port = process.env.PORT || 4000;
 
 //--middleware
-app.use(express.json());
+app.use(express.json());  
 app.use(cors());
 
 //--DataBase connection--
@@ -31,5 +31,5 @@ app.get('/', (req, res) => {
 });
 
 app.listen(port, () => {
-    console.log(`server listening at http://localhost:${port}`) 
+    console.log(`server listening at ${port}`) 
 });

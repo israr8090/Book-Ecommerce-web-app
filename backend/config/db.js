@@ -9,7 +9,7 @@ const connectDB = async () => {
     console.log('server is connected with Database Successfully')  
    } catch (error) {
         console.log(error)
-   }
+   } 
 };
 
-export default connectDB;
+export default connectDB; 
