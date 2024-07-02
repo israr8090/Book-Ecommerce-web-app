@@ -48,8 +48,8 @@ function Navbar({ setShowLogin }) {
             <div className="navbar-profile">
               <div className='user-info'>
                 <img src={assets.profile_icon} alt="" />
-                {/* <h3 >{userDetails.user.name.substring(0, 1)}</h3> */}
-                <h5 >{userDetails.user.name}</h5>
+                <h5 >{userDetails.user.name.substring(0, 4)}</h5>
+                {/* <h5 >{userDetails.user.name}</h5> */}
               </div>
               <ul className="navbar-profile-dropdown">
                 <li onClick={() => navigate('/myorders')}>

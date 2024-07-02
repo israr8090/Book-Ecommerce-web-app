@@ -104,7 +104,7 @@
     transition: 0.2s;
 }
 
-.navbar-profile .user-info:hover{
+.navbar-profile .user-info:hover {
     border: 1px solid rgb(255, 255, 255);
     background-color: rgb(31, 170, 38);
 }
@@ -200,25 +200,50 @@
 }
 
 @media (max-width:750px) {
+    .navbar {
+        padding: 5px 5px;
+        gap: 30px;
+    }
+
     .navbar .logo {
         width: 70px;
     }
 
     .navbar-menu {
-        gap: 10px;
+        gap: 30px;
         font-size: 11px;
+        position: fixed;
+        left: 0px;
+        bottom: 0px;
+        background-color: black;
+        width: 100%;
+        justify-content: center;
+        padding: 6px;
+    }
+
+    .navbar-right {
+        gap: 0px;
+       justify-content: space-between;
+        border-radius: 5px;
     }
 
     .navbar-search {
-        display: none;
+        width: 53%;
     }
 
     .navbar-right img {
         width: 12px;
     }
 
+    .navbar-search input {
+        outline: none;
+        padding: 2px;
+        width: 100%;
+        border-radius: 5px;
+    }
+
     .navbar-right button {
-        padding: 4px 2px;
+        padding: 5px 15px;
         font-size: 10px;
     }
 
